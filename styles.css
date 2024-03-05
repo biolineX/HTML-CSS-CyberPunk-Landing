@@ -1,0 +1,243 @@
+@font-face {
+	font-family: 'Roboto';
+	src: url('fonts/Roboto-Light.woff2') format('woff2');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('fonts/Roboto-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('fonts/Roboto-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Archangelsk';
+	src: url('fonts/Archangelsk.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--color-light: #ffffff;
+	--color-dark: #000000;
+	--color-yellow: #f8f200;
+	--color-blue: #52bedc;
+
+	--button-height: 60px;
+
+	--container-width: 1280px;
+	--container-width-medium: 952px;
+	--container-padding-line: 15px;
+	--container-padding-line-medium: 36px;
+	--container-padding-line-small: 12px;
+
+	--font-family-main: 'Roboto', sans-serif;
+	--font-family-accent: 'Archangelsk', sans-serif;
+
+	--border: 1px solid var(--color-dark);
+}
+
+.container {
+	max-width: calc((var(--container-width) + var(--container-padding-line) * 2));
+	padding-inline: var(--container-padding-line);
+	margin-inline: auto;
+}
+
+.button {
+	padding: 19px 50px;
+	background-color: var(--color-dark);
+	border: none;
+	height: var(--button-height);
+	color: var(--color-yellow);
+	font-weight: 700;
+	font-size: 24px;
+}
+
+a,
+button {
+	transition-duration: 0.2s;
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-family-accent);
+	font-weight: 400;
+	font-size: 62px;
+}
+
+body {
+	font-family: var(--font-family-main);
+	font-weight: 400;
+}
+
+.header {
+	background: url(images/bg1-wide.jpeg);
+	background-size: cover;
+	background-position: center;
+	max-height: 1020px;
+	height: 1020px;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 20px;
+}
+
+.header__menu {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: 20px;
+}
+
+.header__socials {
+	display: flex;
+	column-gap: 40px;
+}
+
+.header__banner {
+	width: 100%;
+	display: flex;
+	justify-content: end;
+}
+
+.header__banner-body {
+	width: 624px;
+	height: 369px;
+	background-color: var(--color-yellow);
+	clip-path: polygon(8% 0, 100% 0, 100% 84%, 92% 100%, 0 100%, 0 16%);
+	padding: 70px;
+	line-height: 1;
+}
+
+.header__banner-title {
+	margin-bottom: 20px;
+}
+
+.header__banner-button {
+	display: inline-block;
+	height: 78px;
+	line-height: 40px;
+}
+
+
+
+@media (hover: hover) {
+	.header__socials-image:hover {
+		scale: 1.1;
+	}
+
+	.button:hover {
+		color: var(--color-dark);
+		background-color: var(--color-yellow);
+		border: 1px solid var(--color-dark);
+	}
+
+	.button:active {
+		background-color: #fffd75;
+	}
+}
+
+@media (hover: none) {
+	.button:active {
+		color: var(--color-dark);
+		background-color: var(--color-yellow);
+		border: 1px solid var(--color-dark);
+	}
+}
+
+@media (max-width: 1024px) {
+	.header {
+		background-image: url('images/bg1-medium.jpg');
+	}
+
+	.container {
+		max-width: calc(var(--container-width-medium) + var(--container-padding-line-medium) * 2);
+		padding-inline: var(--container-padding-line-medium);
+	}
+}
+
+@media (max-width: 800px) {
+	.container {
+		padding-inline: var(--container-padding-line-small);
+	}
+
+	.header__menu {
+		flex-direction: column;
+		row-gap: 10px;
+	}
+
+	.header__banner {
+		justify-content: center;
+		padding-inline: 10px;
+	}
+}
+
+@media (max-width: 640px) {
+	.header__banner {
+		padding-inline: 0px;
+	}
+
+	.header__banner-body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0;
+		aspect-ratio: 624 / 369;
+		height: auto;
+	}
+
+	.header__banner-title {
+		font-size: clamp(30px, 9vw, 58px);
+		text-align: center;
+		margin-bottom: 25px;
+	}
+
+	.header__banner-button {
+		font-size: 20px;
+		height: 60px;
+		padding: 10px 50px;
+	}
+}
+
+@media (max-width: 480px) {
+	.header {
+		height: 713px;
+	}
+
+	.header__socials {
+		column-gap: 28px;
+	}
+
+	.header__banner {
+		margin-bottom: -50px;
+		background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 50%);
+	}
+
+	.header__banner-body {
+		clip-path: polygon(16% 0, 100% 0, 100% 75%, 84% 100%, 0 100%, 0 25%);
+		aspect-ratio: 320/207;
+		min-width: 320px;
+		min-height: 207px;
+	}
+}
