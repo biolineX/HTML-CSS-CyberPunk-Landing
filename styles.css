@@ -599,6 +599,15 @@ body {
 	line-height: 14px;
 }
 
+.footer__policy-image-logo,
+.footer__policy-image-company {
+	max-height: 74px;
+}
+
+.footer__policy-image-company {
+	max-width: 174px;
+}
+
 @keyframes background-change {
 	33% {
 		background-image: url(images/bg/bg2-wide.jpeg);
