@@ -247,9 +247,10 @@ body {
 .competition__title::before {
 	content: '';
 	position: absolute;
-	width: 132px;
-	height: 132px;
+	width: clamp(62px, 12.8vw, 132px);
+	aspect-ratio: 1;
 	background-image: url('icons/promo.svg');
+	background-size: contain;
 	left: 0;
 	bottom: -15px;
 }
@@ -440,14 +441,6 @@ body {
 	align-items: center;
 }
 
-.monitor__info-advantage::before {
-	content: '';
-	width: 32px;
-	height: 32px;
-	background-repeat: no-repeat;
-	background-size: contain;
-}
-
 .monitor__paint::before {
 	background-image: url('icons/paint.svg');
 }
@@ -458,6 +451,16 @@ body {
 
 .monitor__motion::before {
 	background-image: url('icons/motion.svg');
+}
+
+.monitor__info-advantage::before {
+	content: '';
+	display: block;
+	width: 32px;
+	height: 32px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	flex-shrink: 0;
 }
 
 .monitor__info-button {
@@ -478,17 +481,21 @@ body {
 
 .buy__disks {
 	display: flex;
+	flex-grow: 1;
+	max-width: 944px;
+	width: 100%;
 }
 
 .but__disks-image {
 	object-fit: cover;
+	flex-grow: 1;
 }
 
 .buy__body {
 	padding-block: var(--container-padding-block);
 	background-color: var(--color-dark);
 	padding-left: 32px;
-	max-width: 976px;
+	padding-right: 32px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -528,10 +535,11 @@ body {
 
 .buy__game-kit-item::before {
 	content: '';
-	width: 27px;
-	height: 27px;
+	width: 32px;
+	height: 32px;
 	background-repeat: no-repeat;
 	background-size: contain;
+	flex-shrink: 0;
 }
 
 .buy__game-disk::before {
@@ -546,12 +554,42 @@ body {
 	background-image: url('icons/pictures.svg');
 }
 
+.buy__platforms {
+	max-width: 320px;
+}
+
 .buy__platforms-title {
 	margin-bottom: 25px;
 }
 
-.buy__platforms {
+.buy__platform-container {
+	display: flex;
 	max-width: 320px;
+	max-height: 135px;
+	flex-wrap: wrap;
+	row-gap: 50px;
+}
+
+.buy__platform-container-line {
+	display: flex;
+	column-gap: 80px;
+	max-height: 50px;
+	align-items: center;
+}
+
+.buy__platform-link {
+	display: inline-flex;
+	padding-block: 20px;
+	flex-grow: 1;
+}
+
+.buy__platform-image {
+	display: flex;
+	max-height: 36px;
+}
+
+.buy__platform-image--stadia {
+	max-height: 50px;
 }
 
 .footer {
@@ -802,9 +840,6 @@ body {
 
 	.competition__title::before {
 		top: 6px;
-		width: 62px;
-		height: 62px;
-		background-image: url('icons/promo-m.svg');
 	}
 
 	.competition__description {
@@ -849,6 +884,10 @@ body {
 
 	.buy__disks {
 		max-width: 100%;
+	}
+
+	.but__disks-image {
+		object-position: center;
 	}
 
 	.buy__body {
@@ -999,6 +1038,10 @@ body {
 
 	.competition__image-mobile-small {
 		display: block;
+	}
+
+	.buy__disks {
+		max-height: 25vh;
 	}
 }
 
