@@ -313,6 +313,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	border: 1px dashed var(--color-gray);
+	cursor: pointer;
 }
 
 .competition__button-container {
@@ -352,6 +353,7 @@ body {
 	display: flex;
 	column-gap: 10px;
 	align-items: center;
+	cursor: pointer;
 }
 
 .competition__checkbox-label::before {
@@ -679,6 +681,10 @@ body {
 
 	.header {
 		background-image: url('images/bg/bg1-medium.jpg');
+	}
+
+	.header__banner {
+		position: static;
 	}
 
 	.descripton__title {
